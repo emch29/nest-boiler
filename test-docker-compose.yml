@@ -1,8 +1,8 @@
 version: '3.7'
 
 services:
-  main:
-    container_name: main
+  test:
+    container_name: test
     build:
       context: .
       target: development
@@ -10,20 +10,17 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - ${PORT}:${PORT}
+      - ${TEST_PORT}:${TEST_PORT}
       - 9229:9229
-    command: npm run start:debug
+    command: npm run test:e2e
     env_file:
       - .env
-    environment:
-      DATABASE_URL: postgres://postgres:pass@postgres:5432/eva
-      TYPEORM_MIGRATIONS: dist/migration/*.js
     networks:
       - brone
     depends_on:
-      - postgres
-  postgres:
-    container_name: postgres
+      - postgres-test
+  postgres-test:
+    container_name: postgres-test
     image: postgres:12
     networks:
       - brone
@@ -32,13 +29,13 @@ services:
     environment:
       POSTGRES_PASSWORD: pass
       POSTGRES_USER: postgres
-      POSTGRES_DB: eva
+      POSTGRES_DB: eva-test
       PG_DATA: /var/lib/postgresql/data
     ports:
-      - 5434:5432
+      - 5424:5432
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata-test:/var/lib/postgresql/data
 networks:
   brone:
 volumes:
-  pgdata:
+  pgdata-test:
