@@ -12,11 +12,11 @@ services:
     ports:
       - ${PORT}:${PORT}
       - 9229:9229
-    command: npm run start:debug
+    command: npm run start:dev
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgres://postgres:pass@postgres:5432/eva
+      DATABASE_URL: ${TYPEORM_URL}
       TYPEORM_MIGRATIONS: dist/migration/*.js
     networks:
       - brone

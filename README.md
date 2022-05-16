@@ -32,28 +32,41 @@
 $ npm install
 ```
 
-## Code Formatting and Linting
-
-For code formatting install Prettier VS-Code extension.
-For code linting install ESLint VS-Code extension.
+## Running the app using docker
 
 ```bash
-# linting
-$ npm run lint
-
-# formatting
-$ npm run format
+$ npm run start:docker
 ```
 
 ## Running the app
 
 ```bash
-# developement
-$ npm run start:docker
+# development
+$ npm run start
 
-# production
+# watch mode
+$ npm run start:dev
+
+# production mode
 $ npm run start:prod
 ```
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
+
+
+
 
 ## Migrations
 
@@ -84,12 +97,12 @@ npm run migration:run
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
 Nest is [MIT licensed](LICENSE).
-
-
-## Unit tests
-
-Sample unit test file is added and you can execute it using npm run test user.service.spec.ts
