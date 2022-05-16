@@ -6,10 +6,9 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @ApiOperation({description:'Hello World'})
+  @ApiOperation({ description: 'Hello World' })
   @Get()
   getHello(): string {
-    console.log('aaaabcsds');
     return this.appService.getHello();
   }
 }
